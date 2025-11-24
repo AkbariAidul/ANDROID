@@ -1,12 +1,16 @@
 package com.aidul.android;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +24,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void uts1(View view) {
+        Intent touts1 = new Intent(getApplicationContext(), uts_1.class);
+        startActivity(touts1);
+    }
+
+    public void uts2(View view) {
+        Intent touts2 = new Intent(getApplicationContext(), uts_2.class);
+        startActivity(touts2);
+    }
+
+    public void uts3(View view) {
+        Intent touts3 = new Intent(getApplicationContext(), uts_3.class);
+        startActivity(touts3);
     }
 }

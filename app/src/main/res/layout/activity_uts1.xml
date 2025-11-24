@@ -7,4 +7,78 @@
     android:layout_height="match_parent"
     tools:context=".uts_1">
 
+    <EditText
+        android:id="@+id/panjang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:hint="Panjang..."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/lebar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Lebar..."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/panjang"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/panjang"
+        app:layout_constraintTop_toBottomOf="@+id/panjang" />
+
+    <EditText
+        android:id="@+id/tinggi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:hint="Tinggi..."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/lebar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lebar"
+        app:layout_constraintTop_toBottomOf="@+id/lebar" />
+
+    <Button
+        android:id="@+id/hitung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Hitung"
+        app:layout_constraintEnd_toEndOf="@+id/tinggi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tinggi"
+        app:layout_constraintTop_toBottomOf="@+id/tinggi" />
+
+    <TextView
+        android:id="@+id/luas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="Luas permukaan:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tinggi" />
+
+    <TextView
+        android:id="@+id/volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Volume:"
+        app:layout_constraintEnd_toEndOf="@+id/luas"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/luas"
+        app:layout_constraintTop_toBottomOf="@+id/luas" />
 </androidx.constraintlayout.widget.ConstraintLayout>

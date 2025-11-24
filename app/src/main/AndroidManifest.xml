@@ -24,7 +24,7 @@
         <activity
             android:name=".uts_1"
             android:exported="false"
-            android:label="UTS 1"
+            android:label="UTS 1 | Luas dan Volume Balok"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
