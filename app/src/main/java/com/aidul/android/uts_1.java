@@ -1,12 +1,9 @@
-package com.aidul.android; // <-- Sesuaikan dengan nama packagemu sendiri
+package com.aidul.android;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.View; // Wajib import ini
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast; // Untuk pesan error jika kosong
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class uts_1 extends AppCompatActivity {
@@ -15,46 +12,36 @@ public class uts_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uts1);
+        // Di sini kosong saja, tidak perlu panggil Button
+    }
 
-        // 1. Kenalkan komponen dari XML ke Java
-        EditText panjang = findViewById(R.id.panjang);
-        EditText lebar = findViewById(R.id.lebar);
-        EditText tinggi = findViewById(R.id.tinggi);
-        Button hitung = findViewById(R.id.hitung);
-        TextView luas = findViewById(R.id.luas);
-        TextView volume = findViewById(R.id.volume);
+    // Nama method ini harus SAMA PERSIS dengan android:onClick di XML
+    public void hitungBalok(View view) {
 
-        // 2. Pasang aksi ketika tombol diklik
-        btnHitung.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ambil data dari kotak input
-                String isiPanjang = panjang.getText().toString();
-                String isiLebar = lebar.getText().toString();
-                String isiTinggi = tinggi.getText().toString();
+        // 1. Kenalkan komponen (langsung di dalam method ini)
+        EditText edtP = findViewById(R.id.panjang);
+        EditText edtL = findViewById(R.id.lebar);
+        EditText edtT = findViewById(R.id.tinggi);
+        TextView tvLuas = findViewById(R.id.luas);
+        TextView tvVolume = findViewById(R.id.volume);
 
-                // Cek apakah ada yang kosong (Validasi)
-                if (isiPanjang.isEmpty() || isiLebar.isEmpty() || isiTinggi.isEmpty()) {
-                    Toast.makeText(uts_1.this, "Mohon isi semua data!", Toast.LENGTH_SHORT).show();
-                    return; // Berhenti di sini, jangan lanjut hitung
-                }
+        // 2. Ambil angka
+        // (Pakai try-catch biar aplikasi gak crash kalau input kosong)
+        try {
+            double p = Double.parseDouble(edtP.getText().toString());
+            double l = Double.parseDouble(edtL.getText().toString());
+            double t = Double.parseDouble(edtT.getText().toString());
 
-                // Ubah dari String (Huruf) ke Double (Angka Desimal)
-                double p = Double.parseDouble(isiPanjang);
-                double l = Double.parseDouble(isiLebar);
-                double t = Double.parseDouble(isiTinggi);
+            // 3. Rumus
+            double luas = 2 * ((p * l) + (p * t) + (l * t));
+            double volume = p * l * t;
 
-                // 3. Masukkan Rumus Sesuai Soal
-                // Rumus Luas Permukaan = 2 x ((p x l) + (p x t) + (l x t))
-                double luas = 2 * ((p * l) + (p * t) + (l * t));
+            // 4. Tampilkan
+            tvLuas.setText("Luas: " + luas);
+            tvVolume.setText("Volume: " + volume);
 
-                // Rumus Volume = p x l x t
-                double volume = p * l * t;
-
-                // 4. Tampilkan Hasil ke Layar
-                luas.setText("Luas Permukaan : " + luas);
-                volume.setText("Volume : " + volume);
-            }
-        });
+        } catch (NumberFormatException e) {
+            // Kalau kosong, tidak ngapa-ngapain atau kasih pesan error
+        }
     }
 }
