@@ -1,0 +1,4 @@
+1. Buat 3 activity baru -> klik kanan package, buat 3 empty views activity baru
+2. buka themes dan hapus noActionBar
+3. Buka androidManifest dan tambahkan  android:label="UTS 3"  agar setiap activity ada judulnya
+4. edit 
